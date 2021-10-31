@@ -1,0 +1,39 @@
+# Copyright (c) 2020 Kagen Aeby (Kikokeyco)
+# SPDX-License-Identifier: MIT
+
+if BOARD_OUMUAMUA
+
+config ZMK_KEYBOARD_NAME
+	default "Oumuamua"
+
+if USB
+
+config USB_NRFX
+	default y
+
+config USB_DEVICE_STACK
+	default y
+
+endif # USB
+
+config BT_CTLR
+	default BT
+
+config ZMK_BLE
+	default y
+
+config ZMK_USB
+	default y
+	
+config ZMK_BATTERY_VOLTAGE_DIVIDER
+	default n
+
+config ZMK_BATTERY_NRF_VDDH
+	default n	
+
+CONFIG_ZMK_DISPLAY=y
+
+CONFIG_ZMK_RGB_UNDERGLOW=y
+CONFIG_WS2812_STRIP=y
+
+endif # BOARD_OUMUAMUA
