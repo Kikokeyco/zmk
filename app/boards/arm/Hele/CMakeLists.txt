@@ -1,6 +1,4 @@
-
-
-
+target_sources(app PRIVATE Status_LED.c)
 
 set_property(GLOBAL APPEND PROPERTY extra_post_build_commands
   COMMAND ${PYTHON_EXECUTABLE} ${ZEPHYR_BASE}/../tools/uf2/utils/uf2conv.py
