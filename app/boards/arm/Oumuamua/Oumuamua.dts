@@ -92,6 +92,10 @@ RC(4,0) RC(4,1) RC(4,2)  RC(4,5)  RC(4,9) RC(4,10) RC(4,11)  RC(4,13) RC(4,14)
 	status = "okay";
 };
 
+&gpiote {
+	status = "okay";
+};
+
 &adc {
 	status = "okay";
 };
@@ -105,19 +109,20 @@ RC(4,0) RC(4,1) RC(4,2)  RC(4,5)  RC(4,9) RC(4,10) RC(4,11)  RC(4,13) RC(4,14)
  	compatible = "nordic,nrf-twi";
  	sda-pin = <38>;
  	scl-pin = <36>;
+	clock-frequency = <400000>;
 
  	oled: ssd1306@3c {
  		compatible = "solomon,ssd1306fb";
- 		reg = <0x3c>;
+ 		reg = <0x3d>;
  		label = "DISPLAY";
  		width = <128>;
  		height = <64>;
  		segment-offset = <0>;
 		page-offset = <0>;
  		display-offset = <0>;
- 		multiplex-ratio = <31>;
- 		segment-remap;
- 		com-invdir;
+ 		multiplex-ratio = <63>;
+		segment-remap;
+		com-invdir;
  		com-sequential;
  		prechargep = <0x22>;
  	};

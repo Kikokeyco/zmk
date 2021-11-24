@@ -1,0 +1,13 @@
+file_format: "1"
+id: oumuamua
+name: Oumuamua
+type: board
+arch: arm
+exposes: [i2c_oled]
+features:
+  - keys
+  - display
+outputs:
+  - usb
+  - ble
+url: https://github.com/KikoKeyco/zmk-config
