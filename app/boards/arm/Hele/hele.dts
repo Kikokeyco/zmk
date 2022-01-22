@@ -20,6 +20,14 @@
 		zmk,underglow = &led_strip;
 	};
 
+	vbatt {
+		compatible = "zmk,battery-voltage-divider";
+		label = "BATTERY";
+		io-channels = <&adc 3>; // P0.05
+		output-ohms = <2000000>;
+		full-ohms = <(820000 + 2000000)>;
+	};
+
 	ext-power {
 		compatible = "zmk,ext-power-generic";
 		label = "EXT_POWER";
@@ -57,9 +65,9 @@ RC(4,0) RC(4,1) RC(4,2)  RC(4,5)  RC(4,9) RC(4,10) RC(4,11)  RC(4,13) RC(4,14)
 
 		diode-direction = "col2row";
 		row-gpios
-			= <&gpio1 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			= <&gpio1 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 			, <&gpio1 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-			, <&gpio1 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			, <&gpio1 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 			, <&gpio0 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 			, <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 			;

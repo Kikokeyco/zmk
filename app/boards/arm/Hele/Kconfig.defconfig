@@ -26,10 +26,7 @@ config ZMK_USB
 	default y
 	
 config ZMK_BATTERY_VOLTAGE_DIVIDER
-	default n
-
-config ZMK_BATTERY_NRF_VDDH
-	default y	
+	default y
 
 if ZMK_DISPLAY
 

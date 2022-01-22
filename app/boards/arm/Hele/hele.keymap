@@ -7,6 +7,7 @@
 
 #define DEFAULT 0
 #define FN 1
+#define LN 2
 / {
 	keymap {
 		compatible = "zmk,keymap";
@@ -38,9 +39,25 @@
 			bindings = <
 	&reset	 &kp F1 	&kp F2	&kp F3 	&kp F4  &kp F5  &kp F6 	&kp F7 	&kp F8  &kp F9	&kp F10	&rgb_ug RGB_BRD	&rgb_ug RGB_BRI  	&kp 0x2A	&bt BT_CLR
 	&kp 0x2B     &kp   Q   	&kp   C_AL_WORD   	&kp   E   	&kp   R   &kp   T   &kp   Y   	&kp   U   	&kp   I   &kp   O   &kp   P   	&rgb_ug RGB_EFF 	&rgb_ug RGB_EFR	&kp BSLH    &kp C_VOL_UP
-	&kp 0x39 	 &bootloader   	&kp K_SLEEP   	&kp   D   	&kp   F   &kp   G   &kp   H   	&kp   J   	&kp   C_AL_CALC   &kp K_LOCK   &rgb_ug RGB_HUD  	&rgb_ug RGB_HUI   &kp RET		&kp C_VOL_DN
+	&kp 0x39 	 &bootloader   	&kp K_SLEEP   	&kp   D   	&kp   F   &kp   G   &kp   H   	&kp   J   	&kp   C_AL_CALC   &tog LN   &rgb_ug RGB_HUD  	&rgb_ug RGB_HUI   &kp RET		&kp C_VOL_DN
 	&kp LSFT 	 &bt   BT_SEL 0   	&bt   BT_SEL 1   	&bt  BT_SEL 2   &out  OUT_USB   &out OUT_BLE    &kp   N   	&kp   M     &rgb_ug RGB_SAD &rgb_ug RGB_SAI  &kp  C_AC_SEARCH	&kp RSFT 	&kp C_AC_ZOOM_IN      &rgb_ug RGB_TOG
 	&kp LCTL 	 &kp LGUI   &kp LALT				&out OUT_TOG			    &kp RGUI	&mo  FN  			  &kp  LEFT	&kp  C_AC_ZOOM_OUT 	&kp RIGHT	
+			>;
+		};
+		LN_layer {
+// Function layer
+// ------------------------------------------------------------------------------------------
+// | Reset |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |  F7  |  F8  |  F9  |  F10  |  rgb brt dwn  |  rgb brt up  | BKSP |  DEL |
+// |RALT/TAB| Q |  W  |  E  |  R  |  T  |  Y  |  U  |  I  |  O  |  P  |  [  |  ]  |  \  |  VLUP  |
+// | CAPS  |  Bootloader  |  Sleep  |  D  |  F  |  G  |  H  |  J  |  K  |  Lock  |  ;  |  '  |  ENTER  |  VLDN  |
+// | SHIFT | BT0 |  BT1  |  BT2  |  USB  |  BT  |  N  |  M  |  ,  |  .  |  /  |    Shift   | UP |  END  |
+// |  LCTL  |  LWIN  |  LALT  |  Toggleoutput  |  RWIN | FN | LEFT |  DOWN  |  RIGHT  |
+			bindings = <
+	&trans	 &trans 	&trans	&trans 	&trans  &trans  &trans 	&trans 	&trans  &trans	&trans	&trans	&trans  	&trans	&trans
+	&trans     &trans   	&trans   	&trans   	&trans   &trans   &trans   	&trans   	&trans   &trans   &trans   	&trans 	&trans	&trans    &trans
+	&trans 	 &trans   	&trans   	&trans   	&trans   &trans   &trans   	&trans   	&trans   &tog LN   &trans  	&trans   &trans		&trans
+	&trans 	 &trans   	&trans   	&trans   &trans   &trans    &trans   	&trans     &trans &trans  &trans	&trans	&trans      &trans
+	&trans 	 &trans   &trans				&trans			    &trans	&trans  			  &trans	&trans 	&trans	
 			>;
 		};
 	};
